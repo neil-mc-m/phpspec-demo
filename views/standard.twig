@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+  <h5 class="card-header">{{ advert_type }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">
+    	{% for key, val in standard_features %}
+    		<p>{{ val }}</p>
+    	{% endfor %}
+    </h5>
+    <p class="card-text">{{ 'price' | upper }} : {{ cost }}</p>
+    <a href="/" class="btn btn-primary">Go back</a>
+  </div>
+</div>
+</div>
+	</div>
+	</div>
+{% endblock %}
