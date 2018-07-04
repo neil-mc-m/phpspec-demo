@@ -28,7 +28,8 @@ class Standard implements AdvertInterface
     {
         return array(
             '2 week listing',
-            '2 photos'
+            '2 photos',
+            '1hour support per day'
         );
     }
 }
