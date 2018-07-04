@@ -8,6 +8,7 @@ use App\EntityManager;
 
 $app = new Silex\Application();
 $app['debug'] = true;
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => __DIR__.'/../views'
 ));
@@ -24,6 +25,7 @@ $app->get('/', function() use ($app) {
 $app->get('/standard', function() use ($app) {
 
 	$standard = new Standard(new EntityManager());
+
 	$cost = $standard->getCost();
 	$advertType = $standard->getName();
 	$standardFeautures = $standard->getFeatures();
