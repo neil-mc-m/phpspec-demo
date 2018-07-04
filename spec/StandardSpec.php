@@ -43,7 +43,8 @@ class StandardSpec extends ObjectBehavior
     {
         $this->getFeatures()->shouldBe(array(
             '2 week listing',
-            '2 photos'
+            '2 photos',
+            '1hour free support per day',
         ));
     }
 }
