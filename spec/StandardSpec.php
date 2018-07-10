@@ -6,20 +6,14 @@ use App\Standard;
 use App\AdvertInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use App\EntityManagerInterface;
+use App\AdService;
+use App\Cost;
 
 class StandardSpec extends ObjectBehavior
 {
-
     function it_is_initializable()
     {
         $this->shouldHaveType(Standard::class);
-    }
-
-   
-    function let(EntityManagerInterface $em)
-    {
-    	$this->beConstructedWith($em);
     }
 
     function it_should_implement_the_advert_interface()
@@ -27,10 +21,14 @@ class StandardSpec extends ObjectBehavior
     	$this->shouldImplement('App\AdvertInterface');
     }
 
-
-    function it_should_return_its_cost($em)
+    function let(Cost $cost)
     {
-        $em->getCost()->willReturn(10);
+        $this->beConstructedWith($cost);
+    }
+
+    function it_should_return_its_cost(Cost $cost)
+    {
+        $cost->getCost()->willReturn(10);
     	$this->getCost()->shouldBe(10);
     }
 
@@ -44,7 +42,9 @@ class StandardSpec extends ObjectBehavior
         $this->getFeatures()->shouldBe(array(
             '2 week listing',
             '2 photos',
-            '1hour free support per day',
+            '1 hr free support',
+            '20 x 300 branded logo',
+            'free image storage'
         ));
     }
 }

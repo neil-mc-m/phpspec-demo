@@ -4,7 +4,6 @@ namespace spec\App;
 
 use App\Featured;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use App\AdvertInterface;
 
 class FeaturedSpec extends ObjectBehavior
@@ -36,12 +35,18 @@ class FeaturedSpec extends ObjectBehavior
         $advert->getFeatures()->willReturn(array(
             '2 week listing',
             '2 photos',
+            '1 hr free support',
+            'free image storage',
+            '20 x 300 branded logo',
             'top spot for 1 month',
             'guaranteed 10000 viewings per month'
         ));
         $this->getFeatures()->shouldBe(array(
             '2 week listing',
             '2 photos',
+            '1 hr free support',
+            'free image storage',
+            '20 x 300 branded logo',
             'top spot for 1 month',
             'guaranteed 10000 viewings per month',
             'extra support from our specialist staff'

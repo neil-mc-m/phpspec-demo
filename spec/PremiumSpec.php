@@ -3,6 +3,7 @@
 namespace spec\App;
 
 use App\Premium;
+use App\Standard;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use App\AdvertInterface;
@@ -19,26 +20,34 @@ class PremiumSpec extends ObjectBehavior
     	$this->shouldImplement('App\AdvertInterface');
     }
 
-    function let(AdvertInterface $advert)
+    function let(Standard $standard)
     {
-    	$this->beConstructedWith($advert);
+    	$this->beConstructedWith($standard);
     }
 
-    function it_should_return_its_cost($advert)
+    function it_should_return_its_cost($standard)
     {
-    	$advert->getCost()->willReturn(10);
+    	$standard->getCost()->willReturn(10);
 
     	$this->getCost()->shouldBe(20);
     }
-    function it_should_add_to_the_standard_features($advert)
+
+    function it_should_add_to_the_standard_features($standard)
     {
-        $advert->getFeatures()->willReturn(array(
+        $standard->getFeatures()->willReturn(array(
             '2 week listing',
-            '2 photos'
+            '2 photos',
+            '1 hr free support',
+            '20 x 300 branded logo',
+            'free image storage'
         ));
+
         $this->getFeatures()->shouldBe(array(
             '2 week listing',
             '2 photos',
+            '1 hr free support',
+            '20 x 300 branded logo',
+            'free image storage',
             'top spot for 1 month',
             'guaranteed 10000 viewings per month'
         ));

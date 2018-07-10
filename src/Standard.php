@@ -2,34 +2,52 @@
 
 namespace App;
 
-use App\EntityManagerInterface;
-
 class Standard implements AdvertInterface
 {
-	private $name = 'Standard';
-	private $em;
+    /** @var string */
+    private $name = 'Standard';
 
-    public function __construct(EntityManagerInterface $em)
+    /** @var int */
+    private $cost;
+
+    /** @var array */
+    private $features = array(
+        '2 week listing',
+        '2 photos',
+        '1 hr free support',
+        '20 x 300 branded logo',
+        'free image storage'
+    );
+
+    /**
+     * @param Cost $cost
+     */
+    public function __construct(Cost $cost)
     {
-        $this->em = $em;
+        $this->cost = $cost;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCost()
     {
-        return $this->em->getCost();
+        return $this->cost->getCost();
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @return array
+     */
     public function getFeatures()
     {
-        return array(
-            '2 week listing',
-            '2 photos',
-            '1hour free support per day'
-        );
+        return $this->features;
     }
 }

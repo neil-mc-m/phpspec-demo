@@ -2,13 +2,12 @@
 
 namespace App;
 
-class EntityManager implements EntityManagerInterface
+class Cost
 {
-	private $cost = 10;
+    private $cost = 10;
 
     public function getCost()
     {
         return $this->cost;
     }
-
 }
