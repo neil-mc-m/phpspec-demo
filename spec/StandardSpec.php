@@ -3,11 +3,8 @@
 namespace spec\App;
 
 use App\Standard;
-use App\AdvertInterface;
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use App\AdService;
 use App\Cost;
+use PhpSpec\ObjectBehavior;
 
 class StandardSpec extends ObjectBehavior
 {
@@ -46,5 +43,9 @@ class StandardSpec extends ObjectBehavior
             '20 x 300 branded logo',
             'free image storage'
         ));
+    }
+    function it_should_throw_an_exception_if_cost_is_not_10()
+    {
+        $this->shouldThrow('App\Exception\IncorrectCostException')->duringGetCost();
     }
 }

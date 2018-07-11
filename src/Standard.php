@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Exception\IncorrectCostException;
+
 class Standard implements AdvertInterface
 {
     /** @var string */
@@ -32,6 +34,9 @@ class Standard implements AdvertInterface
      */
     public function getCost()
     {
+        if ($this->cost->getCost() < 10) {
+            throw new IncorrectCostException('The cost cant be lower than 10');
+        }
         return $this->cost->getCost();
     }
 

@@ -12,7 +12,7 @@ class Featured implements AdvertInterface
 
     /** @var array */
     private $features = array(
-        'extra support from our specialist staff'
+        '24 hr support from our specialist staff'
     );
 
     /**

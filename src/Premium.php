@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\AdvertInterface;
 
 class Premium implements AdvertInterface
 {

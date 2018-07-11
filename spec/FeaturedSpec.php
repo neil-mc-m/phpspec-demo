@@ -49,7 +49,7 @@ class FeaturedSpec extends ObjectBehavior
             '20 x 300 branded logo',
             'top spot for 1 month',
             'guaranteed 10000 viewings per month',
-            'extra support from our specialist staff'
+            '24 hr support from our specialist staff'
         ));
     }
 }
