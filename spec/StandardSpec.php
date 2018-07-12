@@ -44,8 +44,4 @@ class StandardSpec extends ObjectBehavior
             'free image storage'
         ));
     }
-    function it_should_throw_an_exception_if_cost_is_not_10()
-    {
-        $this->shouldThrow('App\Exception\IncorrectCostException')->duringGetCost();
-    }
 }

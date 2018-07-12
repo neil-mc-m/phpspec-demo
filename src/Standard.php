@@ -31,12 +31,12 @@ class Standard implements AdvertInterface
 
     /**
      * @return mixed
+     * @throws IncorrectCostException
      */
     public function getCost()
     {
-        if ($this->cost->getCost() < 10) {
-            throw new IncorrectCostException('The cost cant be lower than 10');
-        }
+        $this->cost->getCost();
+
         return $this->cost->getCost();
     }
 

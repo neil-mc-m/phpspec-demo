@@ -33,12 +33,7 @@ $app->get(
 $app->get(
     '/standard',
     function () use ($app) {
-        try {
-            $standard = new Standard(new Cost);
-
-        } catch (\App\Exception\IncorrectCostException $e) {
-            print $e->getCode();
-        }
+        $standard = new Standard(new Cost);
 
         return $app['twig']->render(
             'standard.twig',

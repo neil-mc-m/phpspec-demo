@@ -4,7 +4,7 @@ namespace App;
 
 class Cost
 {
-    private $cost = 10;
+    private $cost = 5;
 
     public function getCost()
     {
